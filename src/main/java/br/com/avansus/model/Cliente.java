@@ -3,6 +3,9 @@ package br.com.avansus.model;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+@Named()
 public class Cliente implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -13,6 +16,7 @@ public class Cliente implements Serializable {
 	private String razao;
 	private String email_principal;
 	private String email_secundario;
+	@Inject 
 	private List <Endereco> endereco;
 	private String status;
 	
