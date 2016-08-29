@@ -2,64 +2,56 @@ package br.com.avansus.model;
 
 import java.io.Serializable;
 
-public class Endereco implements Serializable {
-	
+public class Telefone implements Serializable{
+
 	private static final long serialVersionUID = 1L;
 	private Integer id_envolvido;
 	private Integer tipo_envolvido;
-	private String endereco;
-	private String complemento;
-	private String cep;
-	private Cliente cliente;
+	private Integer cod_pais;
+	private Integer cod_area;
+	private String numero;
+	private String nome_contado;
 	
 	public Integer getId_envolvido() {
 		return id_envolvido;
-	}
-	
-	public void setId_envolvido(Integer id_envolvido) {
-		this.id_envolvido = id_envolvido;
 	}
 	
 	public Integer getTipo_envolvido() {
 		return tipo_envolvido;
 	}
 	
-	public void setTipo_envolvido(Integer tipo_envolvido) {
-		this.tipo_envolvido = tipo_envolvido;
+	public Integer getCod_pais() {
+		return cod_pais;
 	}
 	
-	public String getEndereco() {
-		return endereco;
+	public void setCod_pais(Integer cod_pais) {
+		this.cod_pais = cod_pais;
 	}
 	
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
+	public Integer getCod_area() {
+		return cod_area;
 	}
 	
-	public String getComplemento() {
-		return complemento;
+	public void setCod_area(Integer cod_area) {
+		this.cod_area = cod_area;
 	}
 	
-	public void setComplemento(String complemento) {
-		this.complemento = complemento;
+	public String getNumero() {
+		return numero;
 	}
 	
-	public String getCep() {
-		return cep;
+	public void setNumero(String numero) {
+		this.numero = numero;
 	}
 	
-	public void setCep(String cep) {
-		this.cep = cep;
+	public String getNome_contado() {
+		return nome_contado;
 	}
 	
-	public Cliente getCliente() {
-		return cliente;
+	public void setNome_contado(String nome_contado) {
+		this.nome_contado = nome_contado;
 	}
-	
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -68,7 +60,7 @@ public class Endereco implements Serializable {
 		result = prime * result + ((tipo_envolvido == null) ? 0 : tipo_envolvido.hashCode());
 		return result;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -77,7 +69,7 @@ public class Endereco implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Endereco other = (Endereco) obj;
+		Telefone other = (Telefone) obj;
 		if (id_envolvido == null) {
 			if (other.id_envolvido != null)
 				return false;
@@ -90,6 +82,4 @@ public class Endereco implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
-}
+} 
