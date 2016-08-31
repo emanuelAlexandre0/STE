@@ -99,7 +99,7 @@ public class Contrato implements Serializable {
 	}
 
 	public void setViagens(List<Viagem> viagem) {
-		this.viagem = viagens;
+		this.viagens = viagens;
 	}
 		
 	public List<CategoriaVeiculo> getCategoriaVeiculos() {

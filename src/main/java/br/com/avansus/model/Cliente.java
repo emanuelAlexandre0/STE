@@ -3,20 +3,17 @@ package br.com.avansus.model;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.inject.Inject;
-import javax.inject.Named;
-@Named()
 public class Cliente implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private String nome;
-	private TipoPessoa tipo;
+	private String tipo;
 	private String cpfcnpj;
 	private String razao;
 	private String email_principal;
 	private String email_secundario;
-	@Inject 
+
 	private List <Endereco> endereco;
 	private String status;
 	
@@ -27,11 +24,11 @@ public class Cliente implements Serializable {
 		this.nome = nome;
 	}
 	
-	public TipoPessoa getTipo() {
+	public String getTipo() {
 		return tipo;
 	}
 	
-	public void setTipo(TipoPessoa tipo) {
+	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
 	
