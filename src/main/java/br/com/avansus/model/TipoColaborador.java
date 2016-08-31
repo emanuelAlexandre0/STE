@@ -8,7 +8,7 @@ public class TipoColaborador implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private String decricao;
-	private List<Colaborador> colaborador;
+	private List<Colaborador> colaboradores;
 	
 	public Integer getId() {
 		return id;
@@ -23,11 +23,11 @@ public class TipoColaborador implements Serializable {
 	}
 	
 	public List<Colaborador> getColaborador() {
-		return colaborador;
+		return colaboradores;
 	}
 
 	public void setColaborador(List<Colaborador> colaborador) {
-		this.colaborador = colaborador;
+		this.colaboradores = colaborador;
 	}
 
 	@Override

@@ -13,7 +13,7 @@ public class Colaborador implements Serializable{
 	private String email_primario;
 	private String email_secundario;
 	private String passaporte;
-	private List<TipoColaborador> tipo_colaborador;
+	private List<TipoColaborador> tipos_colaborador;
 	private List<Telefone> telefones;
 	private List<Endereco> enderecos;
 	
@@ -71,11 +71,11 @@ public class Colaborador implements Serializable{
 	}
 		
 	public List<TipoColaborador> getTipo_colaborador() {
-		return tipo_colaborador;
+		return tipos_colaborador;
 	}
 
-	public void setTipo_colaborador(List<TipoColaborador> tipo_colaborador) {
-		this.tipo_colaborador = tipo_colaborador;
+	public void setTipo_colaborador(List<TipoColaborador> tipos_colaborador) {
+		this.tipos_colaborador = tipos_colaborador;
 	}
 
 	public List<Telefone> getTelefones() {
