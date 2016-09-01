@@ -3,76 +3,159 @@ package br.com.avansus.model;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "cliente")
 public class Cliente implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue
 	private Integer id;
+	
+	@Column(nullable = false)
 	private String nome;
+	
 	private String tipo;
+	
+	@Column(nullable = false)
 	private String cpfcnpj;
+	
 	private String razao;
+	
+	@Column(nullable = false)
 	private String email_principal;
+	
 	private String email_secundario;
 
-	private List <Endereco> endereco;
 	private String status;
 	
+	private List <Endereco> enderecos;
+	
+	private List <Telefone> telefones;
+	
+	private List <Viagem> viagens;
+	
+	private List <Contrato> contratos;
+	
 	public String getNome() {
+	
 		return nome;
 	}
+	
 	public void setNome(String nome) {
+		
 		this.nome = nome;
 	}
 	
 	public String getTipo() {
+		
 		return tipo;
 	}
 	
 	public void setTipo(String tipo) {
+		
 		this.tipo = tipo;
 	}
 	
 	public String getCpfcnpj() {
+		
 		return cpfcnpj;
 	}
+	
 	public void setCpfcnpj(String cpfcnpj) {
+	
 		this.cpfcnpj = cpfcnpj;
 	}
+	
 	public String getRazao() {
+	
 		return razao;
 	}
+	
 	public void setRazao(String razao) {
+	
 		this.razao = razao;
 	}
+	
 	public String getEmail_principal() {
+		
 		return email_principal;
 	}
+	
 	public void setEmail_principal(String email_principal) {
+	
 		this.email_principal = email_principal;
 	}
+	
 	public String getEmail_secundario() {
+		
 		return email_secundario;
 	}
 	public void setEmail_secundario(String email_secundario) {
+		
 		this.email_secundario = email_secundario;
 	}
 	
-	public List<Endereco> getEndereco() {
-		return endereco;
-	}
-	
-	public void setEndereco(List<Endereco> endereco) {
-		this.endereco = endereco;
-	}
-	
 	public String getStatus() {
+		
 		return status;
 	}
+	
 	public void setStatus(String status) {
+	
 		this.status = status;
 	}
+	
 	public Integer getId() {
+	
 		return id;
+	}
+	
+	public List<Endereco> getEnderecos() {
+	
+		return enderecos;
+	}
+	
+	public void setEnderecos(List<Endereco> enderecos) {
+	
+		this.enderecos = enderecos;
+	}
+	
+	public List<Telefone> getTelefones() {
+	
+		return telefones;
+	}
+	
+	public void setTelefones(List<Telefone> telefones) {
+	
+		this.telefones = telefones;
+	}
+	
+	public List<Viagem> getViagens() {
+	
+		return viagens;
+	}
+	
+	public void setViagens(List<Viagem> viagens) {
+	
+		this.viagens = viagens;
+	}
+	
+	public List<Contrato> getContratos() {
+	
+		return contratos;
+	}
+	
+	public void setContratos(List<Contrato> contratos) {
+	
+		this.contratos = contratos;
 	}
 	
 	@Override

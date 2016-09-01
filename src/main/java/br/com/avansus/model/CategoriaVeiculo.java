@@ -2,11 +2,14 @@ package br.com.avansus.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "categoria_veiculo")
 public class CategoriaVeiculo implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -14,7 +17,10 @@ public class CategoriaVeiculo implements Serializable {
 	@Id
 	@GeneratedValue
 	private Integer id;
+	
+	@Column(nullable = false, unique = true)
 	private String nome;
+	
 	private String descricao;
 	
 	public String getNome() {
