@@ -3,13 +3,25 @@ package br.com.avansus.model;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
 public class ServicoContratado implements Serializable{
 
 	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue
 	private Integer id;
+	
+	@OneToMany
 	private Contrato contrato;
-	private Servico servico;
+	
+	@Column(nullable = false)
 	private Integer diaria;
+	
 	private BigDecimal preco_diaria;
 	private BigDecimal preco_hora_extra;
 	private BigDecimal preco_km_extra;
@@ -17,6 +29,15 @@ public class ServicoContratado implements Serializable{
 	private BigDecimal franquia_km;
 	private String hora_extra;
 	private String km_livre;
+		
+	public ServicoContratado() {
+	
+		super();
+	}
+
+	//===========================================================================
+	//=== Get and Set ===========================================================
+	//===========================================================================
 	
 	public Integer getId() {
 		return id;
@@ -29,15 +50,7 @@ public class ServicoContratado implements Serializable{
 	public void setContrato(Contrato contrato) {
 		this.contrato = contrato;
 	}
-	
-	public Servico getServico() {
-		return servico;
-	}
-	
-	public void setServico(Servico servico) {
-		this.servico = servico;
-	}
-	
+		
 	public Integer getDiaria() {
 		return diaria;
 	}

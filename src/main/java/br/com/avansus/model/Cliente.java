@@ -19,30 +19,32 @@ public class Cliente implements Serializable {
 	@GeneratedValue
 	private Integer id;
 	
+	private String email_secundario;
+	private String status;
+	private List <Endereco> enderecos;
+	private List <Telefone> telefones;
+	private List <Viagem> viagens;
+	private List <Contrato> contratos;
+	private String tipo;
+	private String razao;
+	
 	@Column(nullable = false)
 	private String nome;
-	
-	private String tipo;
 	
 	@Column(nullable = false)
 	private String cpfcnpj;
 	
-	private String razao;
-	
 	@Column(nullable = false)
 	private String email_principal;
 	
-	private String email_secundario;
+	public Cliente() {
+		
+		super();
+	}
 
-	private String status;
-	
-	private List <Endereco> enderecos;
-	
-	private List <Telefone> telefones;
-	
-	private List <Viagem> viagens;
-	
-	private List <Contrato> contratos;
+	//===========================================================================
+	//=== Get and Set ===========================================================
+	//===========================================================================
 	
 	public String getNome() {
 	
@@ -158,8 +160,13 @@ public class Cliente implements Serializable {
 		this.contratos = contratos;
 	}
 	
+	//===========================================================================
+	//=== Hash Code and Equals ==================================================
+	//===========================================================================
+		
 	@Override
 	public int hashCode() {
+		
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
@@ -168,6 +175,7 @@ public class Cliente implements Serializable {
 	
 	@Override
 	public boolean equals(Object obj) {
+		
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -181,6 +189,5 @@ public class Cliente implements Serializable {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
-	}
-	
+	}	
 }
