@@ -23,6 +23,10 @@ public class CategoriaVeiculo implements Serializable {
 	
 	private String descricao;
 	
+	public CategoriaVeiculo () {
+		
+	}
+	
 	public String getNome() {
 		return nome;
 	}

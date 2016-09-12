@@ -6,25 +6,57 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.print.attribute.standard.DateTimeAtCreation;
 
-
-@Named()
+@Entity
+@Table(name = "contrato")
 public class Contrato implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue
 	private Integer id;
+	
+	@ManyToOne
 	private Cliente cliente;
+	
+	@Column(nullable = false, unique = true)
 	private String codigo;
+	
+	@Temporal(TemporalType.DATE)
 	private Date data_assinatura;
+	
+	@Temporal(TemporalType.DATE)
 	private Date data_validade;
+	
 	private String status;
+	
 	private Integer tempo_min_solicitacao;
+	
 	private String dados_adicionais;
-	@Inject
+	
+	@OneToMany
 	private List<ServicoContratado> servicoContratados;
+	
+	@OneToMany
 	private List<Viagem> viagens;
+	
+	@OneToMany
 	private List<CategoriaVeiculo> categoriaVeiculos;
+	
+	public Contrato () {
+		
+	}
 	
 	public Integer getId() {
 		return id;

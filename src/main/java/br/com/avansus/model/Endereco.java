@@ -2,15 +2,28 @@ package br.com.avansus.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "endereco")
 public class Endereco implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue
 	private Integer id_envolvido;
+	
 	private Integer tipo_envolvido;
+	
 	private String endereco;
+	
 	private String complemento;
+	
 	private String cep;
-	private Cliente cliente;
 	
 	public Integer getId_envolvido() {
 		return id_envolvido;
@@ -52,14 +65,6 @@ public class Endereco implements Serializable {
 		this.cep = cep;
 	}
 	
-	public Cliente getCliente() {
-		return cliente;
-	}
-	
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -90,6 +95,5 @@ public class Endereco implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
+		
 }
