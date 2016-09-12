@@ -22,11 +22,6 @@ public class CategoriaVeiculo implements Serializable {
 	
 	@Column(nullable = false, unique = true)
 	private String nome;
-		
-	public CategoriaVeiculo() {
-		
-		super();
-	}
 
 	//===========================================================================
 	//=== Get and Set ===========================================================

@@ -21,11 +21,6 @@ public class Cliente implements Serializable {
 	private Integer id;
 	
 	private String email_secundario;
-	private String status;
-	private List <Endereco> enderecos;
-	private List <Telefone> telefones;
-	private List <Viagem> viagens;
-	private List <Contrato> contratos;
 	private String tipo;
 	private String razao;
 	
@@ -37,13 +32,7 @@ public class Cliente implements Serializable {
 	
 	@Column(nullable = false)
 	private String email_principal;
-	
-	public Cliente() {
-		
-		super();
-	}
 
-<<<<<<< HEAD
 	private String status;
 	
 	@OneToMany	
@@ -57,11 +46,7 @@ public class Cliente implements Serializable {
 	
 	@OneToMany
 	private List <Contrato> contratos;
-=======
-	//===========================================================================
-	//=== Get and Set ===========================================================
-	//===========================================================================
->>>>>>> 0668d3005850e32288ae75fd8b6878aa19dd4bca
+
 	
 	public Cliente() {
 		
