@@ -3,20 +3,15 @@ package br.com.avansus.model;
 import java.io.Serializable;
 
 import javax.persistence.Column;
-<<<<<<< HEAD
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "viagem")
-=======
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
->>>>>>> 0668d3005850e32288ae75fd8b6878aa19dd4bca
 public class Viagem implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -25,28 +20,12 @@ public class Viagem implements Serializable {
 	@GeneratedValue
 	private Integer id;
 	
-<<<<<<< HEAD
-	
-=======
 	@OneToMany
->>>>>>> 0668d3005850e32288ae75fd8b6878aa19dd4bca
 	private Cliente cliente;
 	
 	@Column(nullable = false)
 	private String titulo;
-	
-<<<<<<< HEAD
-	private String descricao;
-	
-	private Itinerario itinerario;
-	
-	private Contrato contrato;
-	
-	private Veiculo veiculo;
-	
-	private Colaborador motorista;
-	
-=======
+
 	@Column(nullable = false)
 	private String descricao;
 	
@@ -63,22 +42,16 @@ public class Viagem implements Serializable {
 	private Colaborador motorista;
 	
 	@Column(nullable = false)
->>>>>>> 0668d3005850e32288ae75fd8b6878aa19dd4bca
 	private String tipo;
 	
 	public Viagem() {
-		
-<<<<<<< HEAD
-	}
-=======
-		super();
+
 	}
 
 	//===========================================================================
 	//=== Get and Set ===========================================================
 	//===========================================================================
 
->>>>>>> 0668d3005850e32288ae75fd8b6878aa19dd4bca
 	public Cliente getCliente() {
 	
 		return cliente;
