@@ -1,29 +1,38 @@
 package br.com.avansus.model;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "categoria_veiculo")
-public class CategoriaVeiculo implements Serializable {
+@Table (name = "parada")
+public class Parada implements Serializable{
 
 	private static final long serialVersionUID = 1L;
+
+	private Itinerario itinerario;
+	private String descricao;
 	
 	@Id
 	@GeneratedValue
 	private Integer id;
-	
-	private String descricao;
-	
-	@Column(nullable = false, unique = true)
-	private String nome;
 		
-	public CategoriaVeiculo() {
+	@Column(nullable = false)
+	private String local;
+	
+	@Column(nullable = false)
+	private Date data_hora; 
+
+	public Parada() {
 		
 		super();
 	}
@@ -32,33 +41,48 @@ public class CategoriaVeiculo implements Serializable {
 	//=== Get and Set ===========================================================
 	//===========================================================================
 	
-	public CategoriaVeiculo () {
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "id_itinerario")
+	public Itinerario getItinerario() {
 		
+		return itinerario;
 	}
-	
-	public String getNome() {
+
+	public String getLocal() {
 		
-		return nome;
+		return local;
 	}
-	
-	public void setNome(String nome) {
+
+	public void setLocal(String local) {
 		
-		this.nome = nome;
+		this.local = local;
 	}
-	
+
 	public String getDescricao() {
 		
 		return descricao;
 	}
-	
+
 	public void setDescricao(String descricao) {
 		
 		this.descricao = descricao;
 	}
-	
-	public Integer getId() {
+
+	@Temporal(TemporalType.DATE)
+	@Column(name = "data_hora", nullable = true)
+	public Date getData_hora() {
 		
-		return id;
+		return data_hora;
+	}
+
+	public void setData_hora(Date data_hora) {
+		
+		this.data_hora = data_hora;
+	}
+
+	public void setItinerario(Itinerario itinerario) {
+		
+		this.itinerario = itinerario;
 	}
 
 	//===========================================================================
@@ -67,7 +91,7 @@ public class CategoriaVeiculo implements Serializable {
 	
 	@Override
 	public int hashCode() {
-		
+
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
@@ -83,7 +107,7 @@ public class CategoriaVeiculo implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		CategoriaVeiculo other = (CategoriaVeiculo) obj;
+		Parada other = (Parada) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -91,5 +115,4 @@ public class CategoriaVeiculo implements Serializable {
 			return false;
 		return true;
 	}
-
 }
