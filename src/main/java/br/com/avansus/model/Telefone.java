@@ -2,16 +2,34 @@ package br.com.avansus.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "categoria_veiculo")
 public class Telefone implements Serializable{
 
 	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue
 	private Integer id_envolvido;
+	
 	private Integer tipo_envolvido;
+	
 	private Integer cod_pais;
+	
 	private Integer cod_area;
+	
 	private String numero;
+	
 	private String nome_contado;
 	
+	public Telefone() {
+		
+	}
 	public Integer getId_envolvido() {
 		return id_envolvido;
 	}
