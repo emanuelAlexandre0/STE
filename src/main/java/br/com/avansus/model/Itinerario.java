@@ -34,14 +34,14 @@ public class Itinerario implements Serializable {
 	private String local_origem;
 	
 	@Column(nullable = false)
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	private Date data_hora_origem;
 	
 	@Column(nullable = false)
 	private String local_destino;
 	
 	@Column(nullable = false)
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	private Date data_hora_destino;
 	
 	public Itinerario() {
