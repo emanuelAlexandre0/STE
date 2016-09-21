@@ -1,17 +1,20 @@
 package br.com.avansus.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "viagem")
-
 public class Viagem implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -20,7 +23,8 @@ public class Viagem implements Serializable {
 	@GeneratedValue
 	private Integer id;
 	
-	@OneToMany
+	@ManyToOne
+	@JoinColumn(name="id_cliente")
 	private Cliente cliente;
 	
 	@Column(nullable = false)
@@ -30,16 +34,22 @@ public class Viagem implements Serializable {
 	private String descricao;
 	
 	@OneToMany
-	private Itinerario itinerario;
+	@JoinTable(name="viagem_itinerario", 
+	joinColumns=@JoinColumn(name="id_viagem"),
+	inverseJoinColumns=@JoinColumn(name="id_itinerario"))
+	private List<Itinerario> itinerarios;
 	
-	@OneToMany
+	@ManyToOne
+	@JoinColumn(name="id_contrato")
 	private Contrato contrato;
 	
-	@OneToMany
+	@ManyToOne
+	@JoinColumn(name="id_veiculo")
 	private Veiculo veiculo;
 	
-	@OneToMany
-	private Colaborador motorista;
+	@ManyToOne
+	@JoinColumn(name="id_motorista")
+	private Colaborador colaborador;
 	
 	@Column(nullable = false)
 	private String tipo;
@@ -82,14 +92,14 @@ public class Viagem implements Serializable {
 		this.descricao = descricao;
 	}
 
-	public Itinerario getItinerario() {
+	public List<Itinerario> getItinerarios() {
 	
-		return itinerario;
+		return itinerarios;
 	}
 	
-	public void setItinerario(Itinerario itinerario) {
+	public void setItinerario(List <Itinerario> itinerarios) {
 	
-		this.itinerario = itinerario;
+		this.itinerarios = itinerarios;
 	}
 	
 	public Contrato getContrato() {
@@ -113,12 +123,12 @@ public class Viagem implements Serializable {
 	
 	public Colaborador getMotorista() {
 	
-		return motorista;
+		return colaborador;
 	}
 	
 	public void setMotorista(Colaborador motorista) {
 	
-		this.motorista = motorista;
+		this.colaborador = motorista;
 	}
 	
 	public String getTipo() {
@@ -136,6 +146,18 @@ public class Viagem implements Serializable {
 		return id;
 	}
 	
+	public Colaborador getColaborador() {
+		return colaborador;
+	}
+
+	public void setColaborador(Colaborador colaborador) {
+		this.colaborador = colaborador;
+	}
+
+	public void setItinerarios(List<Itinerario> itinerarios) {
+		this.itinerarios = itinerarios;
+	}
+
 	//===========================================================================
 	//=== Hash Code and Equals ==================================================
 	//===========================================================================
@@ -166,7 +188,5 @@ public class Viagem implements Serializable {
 			return false;
 		
 		return true;
-	}
-	
-	
+	}	
 }

@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,9 +16,12 @@ public class Telefone implements Serializable{
 	
 	@Id
 	@GeneratedValue
-	private Integer id_envolvido;
+	private Integer id_telefone;
 	
-	private Integer tipo_envolvido;
+	@ManyToOne
+	private Entidade envolvido;
+	
+	private String tipo_envolvido;//E-empresa C-cliente O-colaborador
 	
 	private Integer cod_pais;
 	
@@ -25,17 +29,10 @@ public class Telefone implements Serializable{
 	
 	private String numero;
 	
-	private String nome_contado;
+	private String nome_contato;
 	
 	public Telefone() {
 		
-	}
-	public Integer getId_envolvido() {
-		return id_envolvido;
-	}
-	
-	public Integer getTipo_envolvido() {
-		return tipo_envolvido;
 	}
 	
 	public Integer getCod_pais() {
@@ -63,18 +60,46 @@ public class Telefone implements Serializable{
 	}
 	
 	public String getNome_contado() {
-		return nome_contado;
+		return nome_contato;
 	}
 	
 	public void setNome_contado(String nome_contado) {
-		this.nome_contado = nome_contado;
+		this.nome_contato = nome_contado;
+	}
+	
+	public Entidade getEnvolvido() {
+		return envolvido;
+	}
+
+	public void setEnvolvido(Entidade envolvido) {
+		this.envolvido = envolvido;
+	}
+
+	public String getTipo_envolvido() {
+		return tipo_envolvido;
+	}
+
+	public void setTipo_envolvido(String tipo_envolvido) {
+		this.tipo_envolvido = tipo_envolvido;
+	}
+
+	public String getNome_contato() {
+		return nome_contato;
+	}
+
+	public void setNome_contato(String nome_contato) {
+		this.nome_contato = nome_contato;
+	}
+
+	public Integer getId_telefone() {
+		return id_telefone;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((id_envolvido == null) ? 0 : id_envolvido.hashCode());
+		result = prime * result + ((id_telefone == null) ? 0 : id_telefone.hashCode());
 		result = prime * result + ((tipo_envolvido == null) ? 0 : tipo_envolvido.hashCode());
 		return result;
 	}
@@ -88,10 +113,10 @@ public class Telefone implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Telefone other = (Telefone) obj;
-		if (id_envolvido == null) {
-			if (other.id_envolvido != null)
+		if (id_telefone == null) {
+			if (other.id_telefone != null)
 				return false;
-		} else if (!id_envolvido.equals(other.id_envolvido))
+		} else if (!id_telefone.equals(other.id_telefone))
 			return false;
 		if (tipo_envolvido == null) {
 			if (other.tipo_envolvido != null)
