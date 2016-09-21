@@ -22,7 +22,7 @@
 		<class>br.com.avansus.model.Itinerario</class>
 		<class>br.com.avansus.model.Parada</class>
 		<class>br.com.avansus.model.Servico</class>
-		<class>br.com.avansus.model.ServicoContratado</class>
+		<class>br.com.avansus.model.ServicoContrato</class>
 		<class>br.com.avansus.model.Telefone</class>
 		<class>br.com.avansus.model.TipoColaborador</class>
 		<class>br.com.avansus.model.TipoVeiculo</class>

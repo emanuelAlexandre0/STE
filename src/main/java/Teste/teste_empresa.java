@@ -1,5 +1,4 @@
 package Teste;
-
 import java.util.ArrayList;
 
 import javax.persistence.EntityManager;
@@ -14,7 +13,7 @@ public class teste_empresa {
 		
 		public static void main(String[] args){
 			
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("bdste");
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("STEPU");
 		EntityManager manager = factory.createEntityManager();
 		
 		EntityTransaction trx = manager.getTransaction();
