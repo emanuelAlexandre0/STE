@@ -2,21 +2,21 @@ package br.com.avansus.model;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
-import javax.inject.Inject;
-import javax.inject.Named;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+<<<<<<< HEAD
 import javax.print.attribute.standard.DateTimeAtCreation;
 import javax.validation.constraints.NotNull;
+=======
+>>>>>>> d70bdd78263e6dce73efe4335ef9c0fd6e467b18
 
 @Entity
 @Table(name = "contrato")
@@ -29,6 +29,7 @@ public class Contrato implements Serializable {
 	private Integer id;
 	
 	@ManyToOne
+	@JoinColumn(name="id_cliente")
 	private Cliente cliente;
 	
 	@NotNull
@@ -48,15 +49,6 @@ public class Contrato implements Serializable {
 	private Integer tempo_min_solicitacao;
 	
 	private String dados_adicionais;
-	
-	@OneToMany
-	private List<ServicoContratado> servicoContratados;
-	
-	@OneToMany
-	private List<Viagem> viagens;
-	
-	@OneToMany
-	private List<CategoriaVeiculo> categoriaVeiculos;
 	
 	public Contrato () {
 		
@@ -141,6 +133,7 @@ public class Contrato implements Serializable {
 		this.dados_adicionais = dados_adicionais;
 	}
 	
+<<<<<<< HEAD
 	public List<ServicoContratado> getServicoContratados() {
 		
 		return servicoContratados;
@@ -175,6 +168,8 @@ public class Contrato implements Serializable {
 	//=== Hash Code and Equals ==================================================
 	//===========================================================================
 	
+=======
+>>>>>>> d70bdd78263e6dce73efe4335ef9c0fd6e467b18
 	@Override
 	public int hashCode() {
 		final int prime = 31;

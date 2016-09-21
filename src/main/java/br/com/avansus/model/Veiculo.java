@@ -1,13 +1,16 @@
 package br.com.avansus.model;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+@Entity
 public class Veiculo implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
@@ -18,7 +21,7 @@ public class Veiculo implements Serializable{
 	
 	private String observacao;
 	
-	@OneToMany
+	@ManyToOne
 	private TipoVeiculo tipoVeiculo;
 	
 	@Column(nullable = false, unique = true)
@@ -30,15 +33,17 @@ public class Veiculo implements Serializable{
 	@Column(nullable = false)
 	private String modelo;
 	
-	@OneToMany
+	@ManyToOne
 	private CategoriaVeiculo categoriaVeiculo;
+	
+	@OneToMany
+	private List<Viagem> viagens;
 	
 	@Column(nullable = false)
 	private int ano_fabricacao;
 	
 	public Veiculo() {
 	
-		super();
 	}
 
 	//===========================================================================
@@ -105,8 +110,8 @@ public class Veiculo implements Serializable{
 		return ano_fabricacao;
 	}
 	
-	public void setAno_fabricacao(Integer ano_fabricacao) {
-		
+	public void setAno_fabricacao(int ano_fabricacao) {
+	
 		this.ano_fabricacao = ano_fabricacao;
 	}
 
@@ -118,6 +123,14 @@ public class Veiculo implements Serializable{
 	public void setObservacao(String observacao) {
 		
 		this.observacao = observacao;
+	}
+
+	public List<Viagem> getViagens() {
+		return viagens;
+	}
+
+	public void setViagens(List<Viagem> viagens) {
+		this.viagens = viagens;
 	}
 
 	//===========================================================================

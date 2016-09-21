@@ -39,5 +39,6 @@ public class teste_veiculo {
 		manager.persist(veiculo);
 		
 		trx.commit();
+		manager.close();
 	}
 }

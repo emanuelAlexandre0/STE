@@ -36,5 +36,6 @@ public class teste_servico {
 		servico.setPreco_km_rodado(new BigDecimal(2.55));
 		
 		trx.commit();
+		manager.close();
 	}
 }

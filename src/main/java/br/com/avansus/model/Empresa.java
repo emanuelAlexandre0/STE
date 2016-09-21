@@ -1,29 +1,26 @@
 package br.com.avansus.model;
 
 import java.io.Serializable;
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "empresa")
-public class Empresa implements Serializable {
+public class Empresa extends Entidade implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	@Id
-	@GeneratedValue
-	private Integer id;
 	
 	@NotNull
 	@Column(nullable = false)
 	private String razao_social;
 	
+<<<<<<< HEAD
 	private String nome_fantasia;
 	
 	@NotNull
@@ -38,6 +35,11 @@ public class Empresa implements Serializable {
 	
 	private List <Endereco> enderecos;
 	
+=======
+	@Column(nullable = false)
+	private String cnpj;
+	
+>>>>>>> d70bdd78263e6dce73efe4335ef9c0fd6e467b18
 	public Empresa() {
 		
 	}
@@ -56,16 +58,6 @@ public class Empresa implements Serializable {
 		this.razao_social = razao_social;
 	}
 	
-	public String getNome_fantasia() {
-	
-		return nome_fantasia;
-	}
-	
-	public void setNome_fantasia(String nome_fantasia) {
-	
-		this.nome_fantasia = nome_fantasia;
-	}
-	
 	public String getCnpj() {
 	
 		return cnpj;
@@ -75,6 +67,7 @@ public class Empresa implements Serializable {
 	
 		this.cnpj = cnpj;
 	}
+<<<<<<< HEAD
 	
 	public String getEmail_principal() {
 	
@@ -126,32 +119,9 @@ public class Empresa implements Serializable {
 		
 		return result;
 	}
+=======
+>>>>>>> d70bdd78263e6dce73efe4335ef9c0fd6e467b18
 
-	@Override
-	public boolean equals(Object obj) {
 	
-		if (this == obj)
-			return true;
-		
-		if (obj == null)
-			return false;
-		
-		if (getClass() != obj.getClass())
-			return false;
-		
-		Empresa other = (Empresa) obj;
-		
-		if (id == null) {
-		
-			if (other.id != null)
-			
-				return false;
-		
-		} else if (!id.equals(other.id))
-		
-			return false;
-		
-		return true;
-	}
-
+	
 }

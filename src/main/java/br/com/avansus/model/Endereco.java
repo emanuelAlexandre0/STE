@@ -4,7 +4,9 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -15,10 +17,13 @@ public class Endereco implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue
-	private Integer id_envolvido;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Integer id_endereco;
 	
-	private Integer tipo_envolvido;
+	@ManyToOne
+	private Entidade envolvido;
+	
+	private String tipo_envolvido;//E-empresa C-cliente O-colaborador
 	
 	@NotNull
 	private String endereco;
@@ -27,6 +32,7 @@ public class Endereco implements Serializable {
 	
 	private String cep;
 	
+<<<<<<< HEAD
 	public Endereco() {
 		
 		super();
@@ -56,6 +62,17 @@ public class Endereco implements Serializable {
 		this.tipo_envolvido = tipo_envolvido;
 	}
 	
+=======
+
+	public void setTipo_envolvido(String tipo_envolvido) {
+		this.tipo_envolvido = tipo_envolvido;
+	}
+	
+	public String getTipo_envolvido() {
+		return tipo_envolvido;
+	}
+
+>>>>>>> d70bdd78263e6dce73efe4335ef9c0fd6e467b18
 	public String getEndereco() {
 		
 		return endereco;
@@ -86,15 +103,30 @@ public class Endereco implements Serializable {
 		this.cep = cep;
 	}
 	
+<<<<<<< HEAD
 	//===========================================================================
 	//=== Hash Code and Equals ==================================================
 	//===========================================================================
 	
+=======
+	public Entidade getEnvolvido() {
+		return envolvido;
+	}
+
+	public void setEnvolvido(Entidade envolvido) {
+		this.envolvido = envolvido;
+	}
+	
+	public Integer getId_endereco() {
+		return id_endereco;
+	}
+
+>>>>>>> d70bdd78263e6dce73efe4335ef9c0fd6e467b18
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((id_envolvido == null) ? 0 : id_envolvido.hashCode());
+		result = prime * result + ((id_endereco == null) ? 0 : id_endereco.hashCode());
 		result = prime * result + ((tipo_envolvido == null) ? 0 : tipo_envolvido.hashCode());
 		return result;
 	}
@@ -112,10 +144,10 @@ public class Endereco implements Serializable {
 			return false;
 		
 		Endereco other = (Endereco) obj;
-		if (id_envolvido == null) {
-			if (other.id_envolvido != null)
+		if (id_endereco == null) {
+			if (other.id_endereco != null)
 				return false;
-		} else if (!id_envolvido.equals(other.id_envolvido))
+		} else if (!id_endereco.equals(other.id_endereco))
 			return false;
 		
 		if (tipo_envolvido == null) {

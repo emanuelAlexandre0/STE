@@ -16,6 +16,7 @@ import br.com.avansus.model.Viagem;
 
 public class teste_contrato {
 	public static void main(String[] args){
+		
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("STEPU");
 		EntityManager manager = factory.createEntityManager();
 		
@@ -28,8 +29,7 @@ public class teste_contrato {
 		ArrayList<Contrato> contratos = new ArrayList<>();
 		
 		Endereco endereco = new Endereco();
-		endereco.setId_envolvido(1);
-		endereco.setTipo_envolvido(1);
+		endereco.setTipo_envolvido("C");
 		endereco.setEndereco("Rua dos Guararipes, NS Fatima, Lavras MG");
 		endereco.setComplemento("Comercial");
 		endereco.setCep("37200-000");
@@ -51,19 +51,17 @@ public class teste_contrato {
 		cliente.setEmail_secundario("comercial_juliano@gmail.com");
 		cliente.setStatus("Ativo");
 		cliente.setEnderecos(enderecos);
-		cliente.setViagens(viagens);
-		cliente.setContratos(contratos);
-		
+				
 		Contrato contrato = new Contrato();
 		contrato.setCliente(cliente);
 		contrato.setCodigo("00001");
 		contrato.setDados_adicionais("");
-		contrato.setData_assinatura(new Date(2016,9,16));
-		contrato.setData_validade(new Date(2016, 9, 15));
+		//contrato.setData_assinatura();
+		//contrato.setData_validade();
 		contrato.setDados_adicionais("Contrato de teste");
 		contrato.setStatus("A");
 		contrato.setTempo_min_solicitacao(45);
-		contrato.setServicoContratados(null);
+		
 		
 		manager.persist(enderecos);
 		manager.persist(viagens);
@@ -74,6 +72,7 @@ public class teste_contrato {
 				
 		
 		trx.commit();
+		manager.close();
 	}
 
 }

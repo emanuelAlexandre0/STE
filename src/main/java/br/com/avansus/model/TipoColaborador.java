@@ -4,10 +4,12 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+@Entity
 public class TipoColaborador implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -19,12 +21,12 @@ public class TipoColaborador implements Serializable {
 	@Column(nullable = false, unique = true)
 	private String decricao;
 	
-	@ManyToOne
-	private List<Colaborador> colaboradores;
+	//@ManyToOne
+	//private List<Colaborador> colaboradores;
 		
 	public TipoColaborador() {
 	
-		super();
+		
 	}
 
 	//===========================================================================
@@ -46,7 +48,7 @@ public class TipoColaborador implements Serializable {
 		this.decricao = decricao;
 	}
 	
-	public List<Colaborador> getColaborador() {
+	/*public List<Colaborador> getColaborador() {
 		
 		return colaboradores;
 	}
@@ -54,7 +56,7 @@ public class TipoColaborador implements Serializable {
 	public void setColaborador(List<Colaborador> colaborador) {
 		
 		this.colaboradores = colaborador;
-	}
+	}*/
 	
 	//===========================================================================
 	//=== Hash Code and Equals ==================================================
