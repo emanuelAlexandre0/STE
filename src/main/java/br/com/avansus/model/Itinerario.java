@@ -1,14 +1,17 @@
 package br.com.avansus.model;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -23,8 +26,11 @@ public class Itinerario implements Serializable {
 	@GeneratedValue
 	private Integer id;
 	
-	private Viagem viagem;
+	//@ManyToOne
+	//private Viagem viagem;
+
 	private String descricao_origem;
+	
 	private String descricao_destino;
 	
 	@Column(nullable = false)
@@ -44,9 +50,14 @@ public class Itinerario implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date data_hora_destino;
 	
+	@OneToMany
+	@JoinTable(name="itinerario_parada", 
+	joinColumns=@JoinColumn(name="id_itinerario"),
+	inverseJoinColumns=@JoinColumn(name="id_parada"))
+	private List<Parada> paradas;
+	
 	public Itinerario() {
-		
-		super();
+
 	}
 	
 	//===========================================================================
@@ -58,7 +69,7 @@ public class Itinerario implements Serializable {
 		return id;
 	}
 		
-	public Viagem getViagem() {
+	/*public Viagem getViagem() {
 		
 		return viagem;
 	}
@@ -66,7 +77,7 @@ public class Itinerario implements Serializable {
 	public void setViagem(Viagem viagem) {
 		
 		this.viagem = viagem;
-	}
+	}*/
 	
 	public String getLocal_origem() {
 		
@@ -137,11 +148,21 @@ public class Itinerario implements Serializable {
 		
 		this.tipo = tipo;
 	}
-
+	
+	public List<Parada> getParadas() {
+	
+		return paradas;
+	}
+	
+	public void setParadas(List<Parada> paradas) {
+		
+		this.paradas = paradas;
+	}
+	
 	//===========================================================================
 	//=== Hash Code and Equals ==================================================
 	//===========================================================================
-	
+
 	@Override
 	public int hashCode() { 	
 		

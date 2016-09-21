@@ -2,20 +2,16 @@ package br.com.avansus.model;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
-import javax.inject.Inject;
-import javax.inject.Named;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.print.attribute.standard.DateTimeAtCreation;
 
 @Entity
 @Table(name = "contrato")
@@ -28,6 +24,7 @@ public class Contrato implements Serializable {
 	private Integer id;
 	
 	@ManyToOne
+	@JoinColumn(name="id_cliente")
 	private Cliente cliente;
 	
 	@Column(nullable = false, unique = true)
@@ -44,15 +41,6 @@ public class Contrato implements Serializable {
 	private Integer tempo_min_solicitacao;
 	
 	private String dados_adicionais;
-	
-	@OneToMany
-	private List<ServicoContratado> servicoContratados;
-	
-	@OneToMany
-	private List<Viagem> viagens;
-	
-	@OneToMany
-	private List<CategoriaVeiculo> categoriaVeiculos;
 	
 	public Contrato () {
 		
@@ -118,30 +106,6 @@ public class Contrato implements Serializable {
 		this.dados_adicionais = dados_adicionais;
 	}
 	
-	public List<ServicoContratado> getServicoContratados() {
-		return servicoContratados;
-	}
-
-	public void setServicoContratados(List<ServicoContratado> servicoContratado) {
-		this.servicoContratados = servicoContratado;
-	}
-
-	public List<Viagem> getViagens() {
-		return viagens;
-	}
-
-	public void setViagens(List<Viagem> viagem) {
-		this.viagens = viagens;
-	}
-		
-	public List<CategoriaVeiculo> getCategoriaVeiculos() {
-		return categoriaVeiculos;
-	}
-
-	public void setCategoriaVeiculos(List<CategoriaVeiculo> categoriaVeiculos) {
-		this.categoriaVeiculos = categoriaVeiculos;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;

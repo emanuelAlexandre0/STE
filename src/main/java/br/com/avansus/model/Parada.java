@@ -1,14 +1,12 @@
 package br.com.avansus.model;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -18,9 +16,6 @@ import javax.persistence.TemporalType;
 public class Parada implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-
-	private Itinerario itinerario;
-	private String descricao;
 	
 	@Id
 	@GeneratedValue
@@ -29,24 +24,32 @@ public class Parada implements Serializable{
 	@Column(nullable = false)
 	private String local;
 	
-	@Column(nullable = false)
+	@Temporal(TemporalType.DATE)
+	@Column(name = "data_hora", nullable = false)
 	private Date data_hora; 
+	
+	//@ManyToOne
+	//private Itinerario itinerario;
+	
+	private String descricao;
 
 	public Parada() {
 		
-		super();
 	}
 
 	//===========================================================================
 	//=== Get and Set ===========================================================
 	//===========================================================================
 	
-	@ManyToOne(optional = false)
-	@JoinColumn(name = "id_itinerario")
-	public Itinerario getItinerario() {
+	/*public Itinerario getItinerario() {
 		
 		return itinerario;
 	}
+	
+	public void setItinerario(Itinerario itinerario) {
+		
+		this.itinerario = itinerario;
+	}*/
 
 	public String getLocal() {
 		
@@ -68,8 +71,6 @@ public class Parada implements Serializable{
 		this.descricao = descricao;
 	}
 
-	@Temporal(TemporalType.DATE)
-	@Column(name = "data_hora", nullable = true)
 	public Date getData_hora() {
 		
 		return data_hora;
@@ -78,11 +79,6 @@ public class Parada implements Serializable{
 	public void setData_hora(Date data_hora) {
 		
 		this.data_hora = data_hora;
-	}
-
-	public void setItinerario(Itinerario itinerario) {
-		
-		this.itinerario = itinerario;
 	}
 
 	//===========================================================================

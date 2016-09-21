@@ -3,18 +3,41 @@ package br.com.avansus.model;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Servico implements Serializable{
 
 	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue
 	private Integer id;
+	
+	@ManyToOne
+	@JoinColumn(name="id_categoria_veiculo")
 	private CategoriaVeiculo categoriaVeiculo;
+	
+	@Column(nullable = false)
 	private Integer diaria;
+	
 	private BigDecimal preco_diaria;
+	
 	private BigDecimal preco_hora_extra;
+	
 	private BigDecimal preco_km_extra;
+	
 	private BigDecimal preco_km_rodado;
+	
 	private BigDecimal franquia_km;
+	
 	private String hora_extra;
+	
 	private String km_livre;
 	
 	public Integer getId() {

@@ -4,11 +4,16 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-
-public class ServicoContratado implements Serializable{
+import javax.persistence.Table;
+@Entity
+@Table(name="servico_contrato")
+public class ServicoContrato implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -16,23 +21,34 @@ public class ServicoContratado implements Serializable{
 	@GeneratedValue
 	private Integer id;
 	
-	@OneToMany
+	@ManyToOne
+	@JoinColumn(name="id_contrato")
 	private Contrato contrato;
 	
 	@Column(nullable = false)
 	private Integer diaria;
 	
 	private BigDecimal preco_diaria;
-	private BigDecimal preco_hora_extra;
-	private BigDecimal preco_km_extra;
-	private BigDecimal preco_km_rodado;
-	private BigDecimal franquia_km;
-	private String hora_extra;
-	private String km_livre;
-		
-	public ServicoContratado() {
 	
-		super();
+	private BigDecimal preco_hora_extra;
+	
+	private BigDecimal preco_km_extra;
+	
+	private BigDecimal preco_km_rodado;
+	
+	private BigDecimal franquia_km;
+	
+	private String hora_extra;
+	
+	private String km_livre;
+	
+	@ManyToOne
+	@JoinColumn(name="id_categoria_veiculo")	
+	private CategoriaVeiculo categoriaveiulo;
+	
+	public ServicoContrato() {
+	
+		
 	}
 
 	//===========================================================================
@@ -114,6 +130,14 @@ public class ServicoContratado implements Serializable{
 	public void setKm_livre(String km_livre) {
 		this.km_livre = km_livre;
 	}
+	
+	public CategoriaVeiculo getCategoriaveiulo() {
+		return categoriaveiulo;
+	}
+
+	public void setCategoriaveiulo(CategoriaVeiculo categoriaveiulo) {
+		this.categoriaveiulo = categoriaveiulo;
+	}
 
 	@Override
 	public int hashCode() {
@@ -131,7 +155,7 @@ public class ServicoContratado implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ServicoContratado other = (ServicoContratado) obj;
+		ServicoContrato other = (ServicoContrato) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
