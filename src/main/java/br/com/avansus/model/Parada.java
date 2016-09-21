@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table (name = "parada")
@@ -25,10 +26,12 @@ public class Parada implements Serializable{
 	@Id
 	@GeneratedValue
 	private Integer id;
-		
+	
+	@NotNull
 	@Column(nullable = false)
 	private String local;
 	
+	@NotNull
 	@Column(nullable = false)
 	private Date data_hora; 
 

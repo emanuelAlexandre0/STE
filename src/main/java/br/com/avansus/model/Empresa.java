@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "empresa")
@@ -19,14 +20,17 @@ public class Empresa implements Serializable {
 	@GeneratedValue
 	private Integer id;
 	
+	@NotNull
 	@Column(nullable = false)
 	private String razao_social;
 	
 	private String nome_fantasia;
 	
+	@NotNull
 	@Column(nullable = false)
 	private String cnpj;
 	
+	@NotNull
 	@Column(nullable = false)
 	private String email_principal;
 	
@@ -37,6 +41,10 @@ public class Empresa implements Serializable {
 	public Empresa() {
 		
 	}
+	
+	//===========================================================================
+	//=== Get and Set ===========================================================
+	//===========================================================================
 
 	public String getRazao_social() {
 	
@@ -94,13 +102,19 @@ public class Empresa implements Serializable {
 	}
 		
 	public List<Endereco> getEndereco() {
+		
 		return enderecos;
 	}
 
 	public void setEndereco(List<Endereco> endereco) {
+		
 		this.enderecos = endereco;
 	}
 
+	//===========================================================================
+	//=== Hash Code and Equals ==================================================
+	//===========================================================================
+	
 	@Override
 	public int hashCode() {
 

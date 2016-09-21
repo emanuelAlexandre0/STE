@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "cliente")
@@ -24,12 +25,15 @@ public class Cliente implements Serializable {
 	private String tipo;
 	private String razao;
 	
+	@NotNull
 	@Column(nullable = false)
 	private String nome;
 	
+	@NotNull
 	@Column(nullable = false)
 	private String cpfcnpj;
 	
+	@NotNull
 	@Column(nullable = false)
 	private String email_principal;
 

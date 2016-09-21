@@ -13,6 +13,14 @@
 	</properties>
 
 	<dependencies>
+		<!-- Implementação do Bean Validation -->
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-validator</artifactId>
+		    <version>5.2.4.Final</version>
+			<scope>compile</scope>
+		</dependency>
+
 		<!-- Weld (implementação do CDI) -->
 		<dependency>
             <groupId>org.jboss.weld.servlet</groupId>

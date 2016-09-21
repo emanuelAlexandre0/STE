@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "colaborador")
@@ -27,9 +28,11 @@ public class Colaborador implements Serializable{
 	private String login;
 	private String senha;
 	
+	@NotNull
 	@Column(nullable = false)
 	private String nome;
 	
+	@NotNull
 	@Column(nullable = false)
 	private String email_primario;
 	

@@ -1,7 +1,7 @@
 package br.com.avansus.model;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "itinerario")
@@ -28,18 +29,23 @@ public class Itinerario implements Serializable {
 	private String descricao_destino;
 	
 	@Column(nullable = false)
+	@NotNull
 	private String tipo;
-	
+
+	@NotNull
 	@Column(nullable = false)
 	private String local_origem;
 	
+	@NotNull
 	@Column(nullable = false)
 	@Temporal(TemporalType.DATE)
 	private Date data_hora_origem;
 	
+	@NotNull
 	@Column(nullable = false)
 	private String local_destino;
 	
+	@NotNull
 	@Column(nullable = false)
 	@Temporal(TemporalType.DATE)
 	private Date data_hora_destino;

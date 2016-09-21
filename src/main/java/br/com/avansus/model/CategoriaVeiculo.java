@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "categoria_veiculo")
@@ -18,6 +19,7 @@ public class CategoriaVeiculo implements Serializable {
 	@GeneratedValue
 	private Integer id;
 	
+	@NotNull
 	private String descricao;
 	
 	@Column(nullable = false, unique = true)
