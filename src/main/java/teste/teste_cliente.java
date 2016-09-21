@@ -27,8 +27,7 @@ public class teste_cliente {
 		ArrayList<Contrato> contratos = new ArrayList<>();
 		
 		Endereco endereco = new Endereco();
-		endereco.setId_envolvido(1);
-		endereco.setTipo_envolvido(1);
+		endereco.setTipo_envolvido("C");
 		endereco.setEndereco("Rua dos Ypês, Eldorado, Lavras MG");
 		endereco.setComplemento("Casa");
 		endereco.setCep("37200-000");
@@ -50,8 +49,6 @@ public class teste_cliente {
 		cliente.setEmail_secundario("emanuel.alexandre@gmail.com");
 		cliente.setStatus("Ativo");
 		cliente.setEnderecos(enderecos);
-		cliente.setViagens(viagens);
-		cliente.setContratos(contratos);
 		
 		manager.persist(enderecos);
 		manager.persist(viagens);
@@ -60,6 +57,7 @@ public class teste_cliente {
 		manager.persist(cliente);
 		
 		trx.commit();
+		manager.close();
 	}
 	
 }
