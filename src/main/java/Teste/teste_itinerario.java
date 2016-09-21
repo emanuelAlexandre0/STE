@@ -1,4 +1,4 @@
-package teste;
+package Teste;
 
 import java.util.Calendar;
 import java.util.Date;

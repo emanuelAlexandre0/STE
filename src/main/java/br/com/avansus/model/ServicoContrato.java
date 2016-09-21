@@ -9,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 @Entity
 @Table(name="servico_contrato")
@@ -27,10 +26,6 @@ public class ServicoContrato implements Serializable{
 	
 	@Column(nullable = false)
 	private Integer diaria;
-	
-	@ManyToOne
-	@JoinColumn(name="id_categoria_veiculo")
-	private CategoriaVeiculo categoriaVeiculo;
 	
 	private BigDecimal preco_diaria;
 	
