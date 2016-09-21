@@ -18,7 +18,6 @@ public class teste_itinerario {
 		trx.begin();
 	
 		Itinerario itinerario = new Itinerario();
-		itinerario.setViagem(null);
 		itinerario.setTipo("I");
 		itinerario.setLocal_origem("Av Amazonas 554 Belo Horizante MG");
 		itinerario.setLocal_destino("Av Das Nascentes 443 Nepomuceno MG");
@@ -29,5 +28,6 @@ public class teste_itinerario {
 		
 		
 		trx.commit();
+		manager.close();
 	}
 }
